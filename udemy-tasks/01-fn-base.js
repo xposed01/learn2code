@@ -16,28 +16,29 @@ function start() {
   }
 }
 
-//start();
+start();
 
 function rememberFilms() {
   let i = 0;
   while (i < 1) {
-    let lastWatchedFilm = prompt('Ваш последний просмотренный фильм?');
-    if (lastWatchedFilm == ' ') {
+    let lastWatchedFilm = prompt('Ваш последний просмотренный фильм?').trim();
+    if (lastWatchedFilm == '') {
       alert('Введите название фильма');
-    }
-    if (lastWatchedFilm.length > 50) {
-        alert('Название фильма должно быть короче 50 символов.');
-      } else {
-      let lastWatchedFilmScore = prompt('Поставьте оценку этому фильму');
-      if (lastWatchedFilm && lastWatchedFilmScore) {
-        personalMovieDB.movies[lastWatchedFilm] = lastWatchedFilmScore;
-        i++;
+    } else {
+      if (lastWatchedFilm.length > 50) {
+          alert('Название фильма должно быть короче 50 символов.');
+        } else {
+        let lastWatchedFilmScore = prompt('Поставьте оценку этому фильму');
+        if (lastWatchedFilm && lastWatchedFilmScore) {
+          personalMovieDB.movies[lastWatchedFilm] = lastWatchedFilmScore;
+          i++;
+        }
       }
     }
   }
 }
 
-//rememberFilms();
+rememberFilms();
 
 function detectPersonalLevel() {
   if (personalMovieDB.count < 10) {
