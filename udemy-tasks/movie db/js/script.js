@@ -22,7 +22,7 @@ document.querySelector('.promo__genre').textContent = 'ДРАМА';
 
 // 3) Изменить задний фон постера 
 
-document.querySelector('.promo__bg').style.background = 'url("../img/bg.jpg") center center/cover no-repeat';
+document.querySelector('.promo__bg').style.background = 'url("./img/bg.jpg") center center/cover no-repeat';
 
 // 4) Список фильмов на странице сформировать на основании данных JS файла.
 // Отсортировать по алфавиту. Добавить нумерацию выведенных фильмов
