@@ -63,6 +63,7 @@ submitButton.addEventListener('click', function (element) {
 
 // 7) При клике на мусорную корзину - элемент будет удаляться из списка
 
+
 filmList[0].addEventListener('click', (element) => {
     if (element.target.className === 'delete') {
         let filmName = element.target.parentElement.innerText.slice(3);
