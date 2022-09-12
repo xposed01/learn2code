@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
   // timer
 
-  const deadline = '2022-12-12';
+  const deadline = '2023-12-12';
 
   function getTimeRemaining(endtime) { 
     const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
           hours = Math.floor(t / (1000 * 60 * 60) % 24),
           minutes = Math.floor((t / (1000 * 60) % 60)),
           seconds =  Math.floor(t / 1000 % 60);
-    
+          
     return {
       total: t,
       days: days,
@@ -56,41 +56,45 @@ window.addEventListener('DOMContentLoaded', () => {
       seconds: seconds,
     };
   }
-
+  
   function setClock(selector, endtime) {
     const timer = document.querySelector(selector),
-          days = timer.querySelector('#days'),
-          hours = timer.querySelector('#hours'),
-          minutes = timer.querySelector('#minutes'),
-          seconds = timer.querySelector('#seconds');
-
-
+    days = timer.querySelector('#days'),
+    hours = timer.querySelector('#hours'),
+    minutes = timer.querySelector('#minutes'),
+    seconds = timer.querySelector('#seconds');
+    
+    
     updateClock();
-
+    
     function getZero(num) {
-      if (num >= 0&& num < 10) {
+      if (num <= 0) {
+        return 0;
+      } 
+      if (num >= 0 && num < 10) {
         return `0${num}`;
       } else {
         return num;
       }
     }
-
+    
     function updateClock() {
       const t = getTimeRemaining(endtime);
-
+      
       days.innerHTML = getZero(t.days);
       hours.innerHTML = getZero(t.hours);
       minutes.innerHTML = getZero(t.minutes);
       seconds.innerHTML = getZero(t.seconds);
-
+      
+      
+      let timeInterval = setInterval(updateClock, 1000);
+      
       if (t.total <= 0) {
         clearInterval(timeInterval);
       }
 
     }
-
-    let timeInterval = setInterval(updateClock, 1000);
-
+    
   }
 
   setClock('.timer', deadline);
