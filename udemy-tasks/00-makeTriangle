@@ -1,0 +1,26 @@
+function makeTriangle(lines) {
+
+	let result = '';
+
+	for (let i = 0; i <= lines + 1; i++) {
+		let space = lines + 1 - i;
+
+		for (let k = 0; k < space; k++) {
+			result += ' ';
+		}
+
+		let asteryxNum;
+
+		for (let g = 0; g < i; g++) { asteryxNum = i + g }
+
+		for (let j = 0; j < asteryxNum; j++) {
+			result += '*';
+		}
+
+		result += '\n';
+	}
+
+	console.log(result);
+};
+
+makeTriangle(10);
